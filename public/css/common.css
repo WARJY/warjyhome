@@ -1,0 +1,235 @@
+body{
+	font-family:Segoe UI;
+	background: -moz-linear-gradient(left, #000, #222222 30%, #222222 70%, #000);/* Firefox 3.6+ */
+	background: -webkit-gradient(linear, left top, right top, from(#000), color-stop(0.3, #222222), color-stop(0.7, #222222),to(#000));/* Safari 4-5, Chrome 1-9 */
+	background: -o-linear-gradient(left, #000, #222222 30%, #222222 70%, #000);/* Opera 11.10+ */
+}
+
+
+/*
+ * 头部
+ */
+header{
+	position:fixed;
+	width:100%;
+	height:9vh;	
+	z-index:2;
+}
+header img{
+    float: left;
+    width: 5vh;
+    height: 5vh;
+    margin: 2vh 1vw 0 5vw;
+}
+header a{
+    display: block;
+	line-height:5vh;
+	margin:2vh 1vw 0 1vw;
+	color: #dddddd;
+	font-size:3vh;
+    font-weight: 400;
+    float: left;
+}
+header a:hover{
+	border-bottom:solid 1px rgba(255,255,255,1);
+}
+.hascolor{
+	background-color:#000;
+}
+
+
+/*
+ * 标题
+ */
+.title-box-off{
+	font-family: Segoe UI;
+	font-weight: lighter;
+	color: #fff;
+	text-align: center;
+}
+.title-box-off b,
+.title-box-off p,
+.title-box-off hr{
+	position: relative;
+	left: -14px;
+	top: 25vh;
+}
+/*关闭*/
+.title-box-off b{
+	font-size: 40px;
+	font-weight: 400;
+	letter-spacing: 0;
+	opacity: 0;
+}
+.title-box-off hr{
+	width: 0;
+}
+.title-box-off p{
+	top: 20vh;
+	font-size: 12px;
+	opacity: 0;
+}
+/*打开*/
+.title-box b{
+	font-size: 50px !important`;
+	letter-spacing: 5px !important;
+	opacity: 1 !important;
+}
+.title-box hr{
+	width: 30% !important;
+}
+.title-box p{
+	top: 25vh !important;
+	font-size: 20px !important;
+	opacity: 1 !important;
+}
+
+
+
+/*
+ * 箭头
+ */
+#main{
+	text-align: center;
+}
+.arrow-down{
+	position: relative;
+	top: -28px;
+	left: -12px;
+	font-family:"arrow-down" !important;
+    font-size:20px;
+    font-style:normal;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+}
+
+/*
+ * 底部
+ */
+footer{
+	font-family: "微软雅黑";
+	color: #cccccc;
+	font-size:14px;
+}
+footer article{
+	margin-top: 20px;
+	padding: 20px 0;
+	background-color: #4B4B4B;
+}
+footer p{
+	top: 0 !important;
+	left: 0 !important;
+}
+footer a{
+	color: #fff;
+}
+footer img{
+	width: 100px;
+	height: auto;
+}
+
+
+
+
+/*
+ * 全屏
+ */
+.full{
+	width:100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+/*
+ * 位置
+ */
+.position-abs{
+	position: absolute;
+}
+.position-fix{
+	position: fixed;
+}
+
+/*
+ * 清除浮动
+ */
+.clear{
+	zoom:1;
+}
+.clear:after{ 
+	content:"";
+	display:block;
+	clear:both;
+}
+
+/*
+ * 禁用选择
+ */
+.un-select{
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+/*
+ * 鼠标样式
+ */
+.point{
+	cursor: pointer;
+}
+
+/*
+ * CSS3过渡
+ */
+.transition-all-1{
+	transition: all 1s;
+	-moz-transition: all 1s;
+	-webkit-transition: all 1s;
+	-ms-transition: all 1s;
+}
+.transition-all-2{
+	transition: all 2s;
+	-moz-transition: all 2s;
+	-webkit-transition: all 2s;
+	-ms-transition: all 2s;
+}
+.transition-all-3{
+	transition: all 3s;
+	-moz-transition: all 3s;
+	-webkit-transition: all 3s;
+	-ms-transition: all 3s;
+}
+.transition-all-4{
+	transition: all 4s;
+	-moz-transition: all 4s;
+	-webkit-transition: all 4s;
+	-ms-transition: all 4s;
+}
+
+
+/*外部字体*/
+@font-face{
+	font-family: 'Patriot';
+	src: url('../font/cfb1_american_patriot_normal-webfont.eto');
+	src: url('../font/cfb1_american_patriot_normal-webfont.eto?#iehack') format('eto'),
+		 url('../font/cfb1_american_patriot_normal-webfont.woff') format('woff'),
+		 url('../font/CFB1 American Patriot Normal.ttf') format('truetype'),
+		 url('../font/cfb1_american_patriot_normal-webfont.svg#svgFontName') format('svg');
+}
+
+/*
+ * 图标字体
+ */
+@font-face {
+	font-family: 'arrow-down';
+    src: url('../font/icon/arrow-down/iconfont.eot'); /* IE9*/
+    src: url('../font/icon/arrow-down/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/icon/arrow-down/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../font/icon/arrow-down/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/icon/arrow-down/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+

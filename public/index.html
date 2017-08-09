@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>warJYHome</title>
+<link rel="bookmark" type="image/x-icon" href="icon/logo_alp_64X64.ico" />
+<link rel="shortcut icon" href="icon/logo_alp_64X64.ico">
+<link rel="icon" href="icon/logo_alp_64X64.ico">
+
+<link rel="stylesheet" href="css/util/regiest.css" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" type="text/css" href="css/app.css">
+<link rel="stylesheet" href="css/index.css" />
+<script type="text/javascript" src="js/util/mobileCommon.js"></script>
+</head>
+
+<body>
+	<header id="header" class="transition-all-2">
+		<img src="icon/logo_alp_64X64.ico"> <b>warJYHome</b>
+	</header>
+	<main>
+		<section>
+			<div id="back" class="full Plane position-abs"></div>
+			<div class="full back position-abs"></div>
+			<div class="full position-abs">
+				<canvas id="logo-plane" class="transition-all-4"></canvas>
+			</div>
+			<div class="full position-abs">
+				<canvas id="logo-3d" class="transition-all-3"></canvas>
+			</div>
+		</section>
+	</main>
+	<menu id="menu" class="un-select point transition-all-3">
+		<nav class="transition-all-2">
+			<a href="page/pictures.html">Designs</a>
+			<a href="page/videos.html">Videos</a>
+			<a href="http://127.0.0.1:8080/wordpress">MyBlogs</a>
+		</nav>
+	</menu>
+	<form class="transition-all-3">
+		<input type="text" name="content">
+		<button id="btn-sent" class="point">发送</button>
+		<button id="btn-tanmu" class="point">打开弹幕</button>
+	</form>
+	<div class="position-abs tanmu-box"></div>
+	<script type="text/javascript" src="js/util/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/util/logo.js"></script>
+	<script type="text/javascript" src="js/util/GModule.js/gcc.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+			//加载移动设置
+			loadMobileSetting();
+			//加载动画
+			if (window.innerWidth < 450) {
+				loadLogo();
+			} else if (window.sessionStorage) {
+				var haslog = sessionStorage.getItem("haslog");
+				if (haslog == "yes") {
+					loadLogo();
+				} else {
+					loadLogoAnimation();
+				}
+			}
+			
+			
+		}
+	</script>
+</body>
+
+</html>

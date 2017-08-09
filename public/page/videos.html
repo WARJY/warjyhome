@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Videos</title>
+		<meta charset="utf-8">
+		<link rel="bookmark" type="image/x-icon" href="../icon/logo_alp_64X64.ico"/>
+		<link rel="shortcut icon" href="../icon/logo_alp_64X64.ico">
+		<link rel="icon" href="../icon/logo_alp_64X64.ico">
+		<link rel="stylesheet" href="../css/util/regiest.css" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/videos.css">
+		<script type="text/javascript" src="../js/util/mobileCommon.js" ></script>
+		<script>
+			if(window.sessionStorage){
+				sessionStorage.setItem("haslog","yes");
+			}
+		</script>
+	</head>
+	<body>
+		<section id="main">
+			<header class="clear un-select transition-all-1">
+				<img src="../icon/logo_alp_64X64.ico">
+				<a href="../index.html">Home</a>
+				<a href="pictures.html">Design</a>
+				<a href="#">Blog</a>
+			</header>
+			<section class="full transition-all-1 img-back"></section>
+			<section class="full position-abs un-select title-box-off">
+				<b class="transition-all-2">Video</b>
+				<hr class="transition-all-2"/>
+				<p class="transition-all-2">The man who make videos is SB!</p>
+				<p class="transition-all-2">by gcc</p>
+			</section>
+			<i class="arrow-down transition-all-2">&#xe609;</i>
+			<main data-page="1"></main>
+			<footer></footer>
+		</section>
+		<section id="gray" class="full position-fix"></section>
+		<section id="madel" class="position-fix un-select transition-all-1" data-size="">
+			<video src="" class="un-select" controls="controls"></video>
+			<div></div>
+			<label></label>
+		</section>
+		<script type="text/javascript" src="../js/util/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/videos.js"></script>
+		<script>
+			// 获取文件
+			var backImg = localStorage.getItem("backImg");
+			if(backImg) {
+				//如果已经存在则直接重用已保存的数据
+				console.log(backImg)
+				var url = URL.createObjectURL(backImg);
+				document.getElementsByClassName("img-back")[0].style.backgroundImage = "url(" + url + ")";
+			} else {
+				//发起请求
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "../image/banner.jpg", true);
+				xhr.responseType = "arraybuffer";
+				xhr.addEventListener("load", function() {
+					if(xhr.status === 200) {
+						var blob = new Blob([xhr.response], {
+							"type": "img/jpg"
+						});
+						//放入本地
+						localStorage.setItem("backImg", blob);
+						var url = URL.createObjectURL(blob);
+						document.getElementsByClassName("img-back")[0].style.backgroundImage = "url(" + url + ")";
+					}
+				}, false);
+				xhr.send();
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<a id="test">test</a>
+	</body>
+	<script type="text/javascript" src="../jquery-3.1.1.min.js" ></script>
+	<script type="text/javascript" src="gcc.js" ></script>
+	<script>
+		var testEl = document.getElementById("test");
+		/*
+		 * 传入元素及控制器
+		 */
+		var module1 = new GModule($(testEl), {
+			//事件控制器
+			eventName: "click",
+			eventFunction: function() {
+				alert("this is eFun");
+			},
+			defaultState: "接收参数"
+		}, {
+			//状态控制器
+			"接收参数": function() {
+				var keyword = "123456";
+				if(keyword == "") {
+					return "页面渲染:" + "用户名为空";
+				} else {
+					return "参数验证:" + keyword;
+				}
+			},
+			"参数验证": function(keyword) {
+				if(keyword.length > 4) {
+					return "发送请求:" + keyword;
+				} else {
+					return "页面渲染:" + "参数不合法";
+				}
+			},
+			"发送请求": function(keyword) {
+				//发送请求
+				var result = function() {
+					var result = "我是结果";
+					return result;
+				}();
+				return "页面渲染:" + result;
+			},
+			"页面渲染": function(message) {
+				if(message === "用户名为空") {
+					alert("用户名为空")
+				} else if(message === "用户名不合法") {
+					alert("用户名不合法")
+				} else {
+					alert("成功")
+				}
+			}
+		});
+	</script>
+
+</html>
